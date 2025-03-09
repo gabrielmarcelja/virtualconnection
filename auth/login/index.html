@@ -1,4 +1,4 @@
-!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="pt-br">
 <head>
     <meta charset="UTF-8">
@@ -6,20 +6,31 @@
     <title>Login</title>
 </head>
 <body>
-    <H1>Virtual Connection</H1>
-    
-    <div class="login">
-        <a href="http://" target="_blank" rel="noopener noreferrer">Novo Cadastro</a>
-        <p>Caso tenha acesso, digite seus dados abaixo.</p>
-        <form method="POST" class="formLogin">
-            <h1>Login</h1>
-            <label for="email">E-mail</label>
-            <input type="email" placeholder="Digite seu e-mail" autofocus="true" />
-            <label for="password">Senha</label>
-            <input type="password" placeholder="Digite sua senha" />
-            <a href="/">Esqueci minha senha</a>
-            <input type="submit" value="Acessar" class="btn" />
-        </form>
-    </div>  
+    <main>
+        <div class="loginBox">
+            <div id="loginHead">
+                <p id="lhTitle">Virtual Connection</p>
+            </div>
+            <p id="loginTitle">Login</p>
+            <p id="loginDesc">Insira seu email e senha para acessar o dashboard.</p>
+            <div class="loginInputContainer">
+                <p class="loginLT"><label for="imail">E-mail</label></p>
+                <input type="text" id="imail" placeholder="Insira seu email">
+            </div>
+            <div class="loginInputContainer">
+                <div id="licLabelContainer">
+                    <p class="loginLT"><label for="ipass">Senha</label></p>
+                    <a href="#" id="forgetpass">Esqueceu sua senha?</a>
+                </div>
+                <input type="text" id="ipass" placeholder="Insira sua senha">
+            </div>
+            <div id="rememberContainer">
+                <input type="checkbox" id="rememberBtn">
+                <label for="rememberBtn">Lembre de mim</label>
+            </div>
+            <button id="loginBtn">Login</button>
+        </div>
+        <p class="footerText">Não tem uma conta? <a href="#">Cadastre-se</a></p>
+    </main>
 </body>
 </html>
