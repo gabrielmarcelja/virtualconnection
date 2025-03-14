@@ -1,36 +1,27 @@
 <!DOCTYPE html>
-<html lang="pt-br">
+<html lang="pt-BR">
 <head>
     <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Login</title>
+    <link rel="stylesheet" href="../assets/css/stylelogin.css">
 </head>
 <body>
-    <main>
-        <div class="loginBox">
-            <div id="loginHead">
-                <p id="lhTitle">Virtual Connection</p>
-            </div>
-            <p id="loginTitle">Login</p>
-            <p id="loginDesc">Insira seu email e senha para acessar o dashboard.</p>
-            <div class="loginInputContainer">
-                <p class="loginLT"><label for="imail">E-mail</label></p>
-                <input type="text" id="imail" placeholder="Insira seu email">
-            </div>
-            <div class="loginInputContainer">
-                <div id="licLabelContainer">
-                    <p class="loginLT"><label for="ipass">Senha</label></p>
-                    <a href="#" id="forgetpass">Esqueceu sua senha?</a>
-                </div>
-                <input type="text" id="ipass" placeholder="Insira sua senha">
-            </div>
-            <div id="rememberContainer">
-                <input type="checkbox" id="rememberBtn">
-                <label for="rememberBtn">Lembre de mim</label>
-            </div>
-            <button id="loginBtn">Login</button>
-        </div>
-        <p class="footerText">Não tem uma conta? <a href="#">Cadastre-se</a></p>
-    </main>
+    <div class="page">
+        <img class="logo" src="./img/Sem título.png" alt="logo">
+        <form class="formLogin" id="formLogin">
+            <h1>Login</h1>
+            <p>Digite os seus dados de acesso no campo abaixo.</p>
+            <label for="email"></label>
+            <input type="email" placeholder="Digite seu e-mail" autofocus="true" id="imail"/>
+            <label for="password"></label>
+            <input type="password" placeholder="Senha" id="ipass"/>
+            <a href="/">Esqueci minha senha</a>
+            <input value="Acessar" class="btn" id="iacessarbtn"/>
+            <input value="Cadastrar" class="btn2"/>
+        </form>
+    </div>
+    <script src="../assets/script/loginscript.js"></script>
 </body>
 </html>
