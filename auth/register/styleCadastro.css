@@ -1,0 +1,80 @@
+body{
+    width: auto;
+    height: auto;
+    font-family: 'cooper std black';
+    color: #008c8c;
+
+}
+.pageCadastro {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    align-content:center;
+    justify-content: center;
+    width: 100%;
+    height: 100vh;
+    background-color: #008c8c;
+    
+}
+.formCadastro{
+    display: flex;
+    flex-direction: column;
+    background-color: #fff;
+    border-radius: 7px;
+    padding: 80px;
+    padding-bottom: 130px;
+    box-shadow: 20px 10px 40px rgba(0, 0, 0, 0.4);
+    gap: 10px;
+    height: 700px;
+    width: 450px;
+}
+.formCadastro h1{
+    padding: 0;
+    margin: 0;
+    margin-bottom: 25px;
+    top: 50px;
+    font-weight: 500;
+    font-size: 2.3em;
+}
+.formCadastro input{
+    
+    padding: 15px;
+    font-size: 22px;
+    border: 1px solid #ccc;
+    margin-bottom: 20px;
+    margin-top: 5px;
+    border-radius: 4px;
+    transition: all linear 160ms;
+    outline: none;
+}
+.formCadastro input:focus {
+    border: 1px solid #008c8c;
+}
+.formCadastro label {
+    font-size: 22px;
+    font-weight: 600;
+}
+.formCadastro a {
+    display: inline-block;
+    margin-bottom: 20px;
+    font-size: 13px;
+    color: #555;
+    transition: all linear 160ms;
+}
+.formCadastro a:hover {
+    color: #008c8c;
+}
+.btn {
+    background-color: #008c8c;
+    color: #fff;
+    font-size: 14px;
+    font-weight: 600;
+    border: none !important;
+    transition: all linear 160ms;
+    margin: 0 !important;
+}
+
+.btn:hover {
+    transform: scale(1.05);
+    background-color: #008c8c;
+}
