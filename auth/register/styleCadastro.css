@@ -1,8 +1,15 @@
+@import url('https://fonts.googleapis.com/css2?family=Cooper+Black&display=swap');
+
 body{
-    width: auto;
-    height: auto;
-    font-family: 'cooper std black';
-    color: #008c8c;
+    font-family: 'Cooper Black', sans-serif;
+    background-color: #008c8c;
+    max-width: 100%;
+    margin: 0;
+    padding: 0;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 
 }
 .pageCadastro {
@@ -11,30 +18,43 @@ body{
     align-items: center;
     align-content:center;
     justify-content: center;
-    width: 100%;
+    color: #008c8c;
     height: 100vh;
-    background-color: #008c8c;
-    
 }
+    .logo {
+        margin-bottom: 10px; 
+        align-items: center;
+        width: 200px; /* Ajuste o tamanho da logo conforme necessário */
+        height: 130px;
+}       
+/*logo sem fundo*/
+img {
+    width: 100%; 
+    max-width: 210px
+}
+
 .formCadastro{
     display: flex;
     flex-direction: column;
-    background-color: #fff;
-    border-radius: 7px;
     padding: 80px;
-    padding-bottom: 130px;
-    box-shadow: 20px 10px 40px rgba(0, 0, 0, 0.4);
+    padding-bottom: 180px;
     gap: 10px;
-    height: 700px;
-    width: 450px;
+    width: 100%;
+    max-width: 450px;
+    margin: 0 20px;
+    background-color: #ffffff;
 }
 .formCadastro h1{
     padding: 0;
     margin: 0;
     margin-bottom: 25px;
-    top: 50px;
-    font-weight: 500;
-    font-size: 2.3em;
+    top: 10px;
+    font-weight: 500px;
+    font-size: 4em;
+    width: 180px;
+    text-align: center;
+
+    
 }
 .formCadastro input{
     
@@ -46,13 +66,17 @@ body{
     border-radius: 4px;
     transition: all linear 160ms;
     outline: none;
+
 }
 .formCadastro input:focus {
     border: 1px solid #008c8c;
 }
 .formCadastro label {
-    font-size: 22px;
+    font-size: 26px;
     font-weight: 600;
+    border-radius: 20px;
+
+  
 }
 .formCadastro a {
     display: inline-block;
@@ -62,19 +86,98 @@ body{
     transition: all linear 160ms;
 }
 .formCadastro a:hover {
-    color: #008c8c;
+    color: #7ac6c6;
 }
 .btn {
-    background-color: #008c8c;
-    color: #fff;
+   
     font-size: 14px;
     font-weight: 600;
     border: none !important;
     transition: all linear 160ms;
     margin: 0 !important;
+    color: #ffffff;
+    padding: 12px 20px;
+    border-radius: 5px;
+    background-color: #008c8c;
 }
 
 .btn:hover {
     transform: scale(1.05);
-    background-color: #008c8c;
+    background-color: #7ac6c6;
+    
+}
+
+/* Responsividade para dispositivos menores que 768px (Celulares) */
+@media (max-width: 768px) {
+    .formCadastro {
+        padding: 20px;
+        width: 100%;
+        max-width: 100%; /* O formulário ocupa 100% da largura */
+    }
+
+    .formCadastro h1 {
+        font-size: 2em; /* Reduz o tamanho do título */
+    }
+
+    .formCadastro input, .formCadastro label {
+        font-size: 18px; /* Ajusta o tamanho das fontes para telas pequenas */
+    }
+
+    .logo img {
+        max-width: 180px; /* Reduz o tamanho da logo em dispositivos móveis */
+    }
+
+    .btn {
+        font-size: 16px;
+        padding: 12px 25px; /* Aumenta o tamanho do botão */
+    }
+}
+
+/* Responsividade para dispositivos entre 768px e 1024px (Tablets) */
+@media (max-width: 1024px) and (min-width: 769px) {
+    .formCadastro {
+        width: 80%; /* Ajusta o tamanho do formulário para telas médias */
+    }
+
+    .formCadastro h1 {
+        font-size: 2.3em;
+    }
+
+    .formCadastro input, .formCadastro label {
+        font-size: 20px;
+    }
+
+    .logo img {
+        max-width: 200px; /* Ajusta o tamanho da logo */
+    }
+
+    .btn {
+        font-size: 18px;
+        padding: 14px 30px; /* Ajusta o tamanho do botão */
+    }
+}
+
+/* Responsividade para desktops maiores que 1024px */
+@media (min-width: 1025px) {
+    .formCadastro {
+        padding: 40px 30px; /* Adiciona um padding maior para telas grandes */
+        width: 450px; /* Tamanho fixo para o formulário */
+    }
+
+    .formCadastro h1 {
+        font-size: 2.5em;
+    }
+
+    .formCadastro input, .formCadastro label {
+        font-size: 22px;
+    }
+
+    .logo img {
+        max-width: 210px; /* Tamanho máximo da logo */
+    }
+
+    .btn {
+        font-size: 18px;
+        padding: 14px 30px;
+    }
 }
