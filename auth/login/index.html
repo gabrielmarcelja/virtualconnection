@@ -5,23 +5,31 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Login</title>
-    <link rel="stylesheet" href="../assets/css/stylelogin.css">
+    <link rel="stylesheet" href="stylelogin.css">
 </head>
 <body>
+<div class="areaLogin">
+    <div class="logo">
+        <img src="/index-login/img/Logo sem fundo.png" alt="LOGO">
+    </div>
     <div class="page">
-        <img class="logo" src="./img/Sem título.png" alt="logo">
-        <form class="formLogin" id="formLogin">
+        <div class="formLogin" id="formLogin">
             <h1>Login</h1>
             <p>Digite os seus dados de acesso no campo abaixo.</p>
             <label for="email"></label>
-            <input type="email" placeholder="Digite seu e-mail" autofocus="true" id="imail"/>
+            <input type="email" placeholder="Digite seu e-mail" autofocus="true" />
+
             <label for="password"></label>
-            <input type="password" placeholder="Senha" id="ipass"/>
+            <input type="password" placeholder="Senha" />
+
             <a href="/">Esqueci minha senha</a>
-            <input value="Acessar" class="btn" id="iacessarbtn"/>
-            <input value="Cadastrar" class="btn2"/>
-        </form>
+
+            <input type="submit" value="Acessar" class="btn" />
+            
+            <input type="submit" value="Cadastrar" class="btn2"/>
+            
+        </div>
     </div>
-    <script src="../assets/script/loginscript.js"></script>
+</div>
 </body>
 </html>
