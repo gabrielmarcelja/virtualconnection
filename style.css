@@ -1,0 +1,100 @@
+body{
+    background-color: #008c8c;
+color: white;
+max-width: 1200px;
+margin: 0 auto;
+padding: 15px;
+
+}
+
+header{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+}
+
+#title{
+    flex-direction: column;
+    line-height: 10px;
+    font-size: 20px;
+}
+
+li{
+    display: inline-block;
+    margin: 20px;
+}
+
+a{
+    color: white;
+    font-size: 18px;
+}
+
+a:hover{
+    color: black;
+    transition: 0.3s all;
+}
+
+#Cadastre-se-btn{
+border: 2px solid white;
+padding: 10px;
+border-radius: 20px;
+}
+
+#Cadastre-se-btn:hover{
+    background-color: white;
+}
+
+h1{
+    font-weight: 200;
+}
+
+main{
+    display: flex;
+    flex-direction: row;
+    margin-top: 50px;
+}
+
+h2{
+    font-size: 50px;
+
+}
+
+p{
+    line-height: 17px;
+    max-width: 500px;
+    font-size: 18px;
+}
+
+img{
+    width: 570px;
+    display: flex;
+    align-items: center;
+   
+}
+
+form{
+    display: flex;
+    flex-direction: column;
+    width: 70%;
+}
+
+form [type="submit"]{
+    height: 50px;
+    width: 50%;
+    background-color: white;
+    color: black;
+}
+
+form [type="submit"]:hover{
+    cursor: pointer;
+}
+
+input{
+    margin-top: 20px;
+    height: 20px;
+    padding: 15px;
+    border-radius: 20px;
+    border: none;
+    font-size: 15px;
+}
