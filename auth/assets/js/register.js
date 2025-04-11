@@ -32,7 +32,7 @@ document.addEventListener('DOMContentLoaded', () => {
         }
 
         const xhr = new XMLHttpRequest();
-        xhr.open('POST', 'process.php', true);
+        xhr.open('POST', '/auth/register', true);
         xhr.setRequestHeader('Content-Type', 'application/x-www-form-urlencoded');
 
         xhr.onreadystatechange = () => {
@@ -42,7 +42,7 @@ document.addEventListener('DOMContentLoaded', () => {
                     showMessage(response.message, response.status);
                     if (response.status === 'success') {
                         setTimeout(() => {
-                            window.location.href = '../../dashboard/index.html';
+                            window.location.href = '/dashboard';
                         }, 1000);
                     }
                 } else {

@@ -19,18 +19,22 @@ document.addEventListener('DOMContentLoaded', () => {
         }
 
         const xhr = new XMLHttpRequest();
-        xhr.open('POST', 'process.php', true);
+        xhr.open('POST', '/auth/login', true); 
         xhr.setRequestHeader('Content-Type', 'application/x-www-form-urlencoded');
 
         xhr.onreadystatechange = () => {
             if (xhr.readyState === 4) {
                 if (xhr.status === 200) {
-                    const response = JSON.parse(xhr.responseText);
-                    showMessage(response.message, response.status);
-                    if (response.status === 'success') {
-                        setTimeout(() => {
-                            window.location.href = '../../dashboard/';
-                        }, 1000);
+                    try {
+                        const response = JSON.parse(xhr.responseText);
+                        showMessage(response.message, response.status);
+                        if (response.status === 'success') {
+                            setTimeout(() => {
+                                window.location.href = '/dashboard';
+                            }, 1000);
+                        }
+                    } catch (e) {
+                        showMessage('Erro ao processar a resposta do servidor.', 'error');
                     }
                 } else {
                     showMessage('Erro na comunicação com o servidor.', 'error');

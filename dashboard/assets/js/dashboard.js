@@ -10,8 +10,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
     function checkSession() {
         const xhr = new XMLHttpRequest();
-        xhr.open('GET', 'check_session.php', true);
-
+        xhr.open('GET', '/dashboard/check_session', true); 
         xhr.onreadystatechange = () => {
             if (xhr.readyState === 4) {
                 if (xhr.status === 200) {
@@ -19,21 +18,19 @@ document.addEventListener('DOMContentLoaded', () => {
                     if (response.status === 'success') {
                         loadContacts();
                     } else {
-                        window.location.href = '../auth/login/index.html';
+                        window.location.href = '/auth/login';
                     }
                 } else {
                     contactsContainer.innerHTML = '<p class="error">Erro ao verificar sessão.</p>';
                 }
             }
         };
-
         xhr.send();
     }
 
     function loadContacts() {
         const xhr = new XMLHttpRequest();
-        xhr.open('GET', 'get_contacts.php', true);
-
+        xhr.open('GET', '/dashboard/get_contacts', true); 
         xhr.onreadystatechange = () => {
             if (xhr.readyState === 4) {
                 if (xhr.status === 200) {
@@ -48,7 +45,6 @@ document.addEventListener('DOMContentLoaded', () => {
                 }
             }
         };
-
         xhr.send();
     }
 
@@ -106,7 +102,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
     addContactBtn.addEventListener('click', () => {
         addContactForm.classList.toggle('hidden');
-        editContactForm.classList.add('hidden'); 
+        editContactForm.classList.add('hidden');
     });
 
     cancelAddBtn.addEventListener('click', () => {
@@ -136,7 +132,7 @@ document.addEventListener('DOMContentLoaded', () => {
         }
 
         const xhr = new XMLHttpRequest();
-        xhr.open('POST', 'add_contact.php', true);
+        xhr.open('POST', '/dashboard/add_contact', true); 
         xhr.setRequestHeader('Content-Type', 'application/x-www-form-urlencoded');
 
         xhr.onreadystatechange = () => {
@@ -162,8 +158,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
     function editContact(contactId) {
         const xhr = new XMLHttpRequest();
-        xhr.open('GET', `get_contacts.php?id=${contactId}`, true);
-
+        xhr.open('GET', `/dashboard/get_contacts?id=${contactId}`, true); 
         xhr.onreadystatechange = () => {
             if (xhr.readyState === 4 && xhr.status === 200) {
                 const response = JSON.parse(xhr.responseText);
@@ -178,7 +173,6 @@ document.addEventListener('DOMContentLoaded', () => {
                 }
             }
         };
-
         xhr.send();
     }
 
@@ -205,7 +199,7 @@ document.addEventListener('DOMContentLoaded', () => {
         }
 
         const xhr = new XMLHttpRequest();
-        xhr.open('POST', 'edit_contact.php', true);
+        xhr.open('POST', '/dashboard/edit_contact', true); 
         xhr.setRequestHeader('Content-Type', 'application/x-www-form-urlencoded');
 
         xhr.onreadystatechange = () => {
@@ -237,8 +231,7 @@ document.addEventListener('DOMContentLoaded', () => {
     function deleteContact(contactId) {
         if (confirm('Tem certeza que deseja excluir este contato?')) {
             const xhr = new XMLHttpRequest();
-            xhr.open('GET', `excluir.php?id=${contactId}`, true);
-
+            xhr.open('GET', `/dashboard/delete_contact?id=${contactId}`, true); 
             xhr.onreadystatechange = () => {
                 if (xhr.readyState === 4) {
                     if (xhr.status === 200) {
@@ -253,7 +246,6 @@ document.addEventListener('DOMContentLoaded', () => {
                     }
                 }
             };
-
             xhr.send();
         }
     }
