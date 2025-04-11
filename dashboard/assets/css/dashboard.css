@@ -1,0 +1,223 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+body {
+    background-color: #008c8c;
+}
+
+main {
+    width: 80vw;
+    max-width: 1200px;
+    background-color: rgb(255, 255, 255);
+    margin: 5vh auto;
+    padding: 2rem;
+    border-radius: 10px;
+}
+
+p#title {
+    font-size: 2.5rem;
+    font-weight: bold;
+}
+
+.btn {
+    background-color: #008c8c;
+    color: #ffffff;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    font-size: 16px;
+    cursor: pointer;
+    margin: 1rem 0;
+}
+
+.btn:hover {
+    background-color: #006666;
+}
+
+.btn.cancel {
+    background-color: #ff3333;
+}
+
+.btn.cancel:hover {
+    background-color: #cc0000;
+}
+
+.add-contact-form {
+    background-color: #f0f0f0;
+    padding: 1rem;
+    border-radius: 5px;
+    margin: 1rem 0;
+}
+
+.add-contact-form.hidden {
+    display: none;
+}
+
+.add-contact-form input {
+    display: block;
+    width: 100%;
+    padding: 10px;
+    margin: 0.5rem 0;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    font-size: 16px;
+}
+
+.add-contact-form button {
+    margin: 0.5rem 0.5rem 0 0;
+}
+
+div#searchbarContainer {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    border: 1px solid black;
+    border-radius: 5px;
+    width: 100%;
+    max-width: 500px;
+    height: 3rem;
+    padding-left: 0.5rem;
+    margin: 1rem 0;
+}
+
+div#searchbarContainer svg {
+    height: 100%;
+}
+
+input#searchbarInput {
+    height: 100%;
+    width: 90%;
+    border: none;
+    outline: none;
+    font-size: 18px;
+    color: black;
+}
+
+div.contactContainer {
+    border: 1px solid black;
+    padding: 1rem;
+    margin-bottom: 1rem;
+}
+
+div.contactInfo {
+    border-top: 1px solid black;
+    margin: 0.5rem 0;
+    padding-top: 0.5rem;
+}
+
+div.contactContainertwo {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+input.contactEmail {
+    margin: 0.5em 0;
+}
+
+div.contactInfoContainer {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+input.contactinput {
+    width: 80%;
+    border: none;
+    background: none;
+    font-size: 16px;
+    color: black;
+}
+
+p.error {
+    color: red;
+    text-align: center;
+    margin: 1rem 0;
+}
+
+.editContact, .deleteContact {
+    color: #008c8c;
+    text-decoration: none;
+    font-size: 14px;
+}
+
+.editContact:hover, .deleteContact:hover {
+    text-decoration: underline;
+    color: #006666;
+}
+
+@media (max-width: 800px) {
+    main {
+        width: 95vw;
+        margin: 10dvh auto 0;
+        padding: 1rem;
+    }
+
+    p#title {
+        font-size: 3rem;
+    }
+
+    div#searchbarContainer {
+        height: 2.5rem;
+        max-width: none;
+    }
+
+    input#searchbarInput {
+        font-size: 18px;
+    }
+
+    .btn {
+        padding: 8px 16px;
+        font-size: 14px;
+    }
+
+    .add-contact-form input {
+        padding: 8px;
+        font-size: 14px;
+    }
+
+    div.contactContainer {
+        padding: 0.8rem;
+    }
+
+    input.contactinput {
+        font-size: 14px;
+    }
+
+    .editContact, .deleteContact {
+        font-size: 12px;
+    }
+}
+
+@media (min-width: 801px) and (max-width: 1200px) {
+    main {
+        width: 90vw;
+        padding: 1.5rem;
+    }
+
+    p#title {
+        font-size: 2.8rem;
+    }
+
+    div#searchbarContainer {
+        height: 2.8rem;
+    }
+
+    input#searchbarInput {
+        font-size: 16px;
+    }
+
+    .btn {
+        padding: 9px 18px;
+        font-size: 15px;
+    }
+
+    .add-contact-form input {
+        padding: 9px;
+        font-size: 15px;
+    }
+}

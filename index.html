@@ -1,41 +1,76 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="pt-BR">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="style.css">
-    <link rel="stylesheet" href="media.css">
-    <title>Landing page</title>
+    <title>Virtual Connection - Sua Agenda Virtual</title>
+    <link rel="stylesheet" href="assets/css/landing.css">
 </head>
 <body>
-    <HEader>   
+    <header>
         <div id="title">
-          <h1>Virtual</h1>
-          <h1>Connection</h1>
+            <h1>Virtual Connection</h1>
         </div>
 
-        <ul>
-            <li><a href="#cadastre-se">Cadastre-se</a></li>
-            <li><a href="#fale-conosco">Fale Conosco</a></li>
-            <li><a href="#sobre-nos">Sobre Nós</a></li>
-            <li><a href="#login">Login</a></li>
-            <li><a href="#servicos">Serviços</a></li>
-        </ul>
-    </HEader>
+        <nav>
+            <div class="menu-icon">
+                <svg viewBox="0 0 24 24" width="30" height="30" fill="#ffffff">
+                    <path d="M3 18h18v-2H3v2zm0-5h18v-2H3v2zm0-7v2h18V6H3z"/>
+                </svg>
+            </div>
+            <div class="menu-items">
+                <ul>
+                    <li><a href="#sobre-nos">Sobre Nós</a></li>
+                    <li><a href="#servicos">Serviços</a></li>
+                    <li><a href="#fale-conosco">Fale Conosco</a></li>
+                    <li><a href="auth/register/index.html" class="btn" id="cadastre-se-btn">Cadastre-se</a></li>
+                    <li><a href="auth/login/index.html" class="btn" id="login-btn">Login</a></li>
+                </ul>
+            </div>
+        </nav>
+    </header>
 
-    <main>   
+    <main>
         <aside>
-             <h2>Plataforma de contatos internacional</h2>
+            <h2>Plataforma de Contatos Internacional</h2>
             <p>
-            Nosso principal objetivo é facilitar com que voce tenha acesso aos seus contatos de forma rapida e eficiente.
-            </p>  
-            
+                Nosso principal objetivo é facilitar o acesso aos seus contatos de forma rápida e eficiente, onde quer que você esteja.
+            </p>
         </aside>
-       
-        <article>
-            <img src="Virtual Connection.jpg" alt="logo virtual Connection">
-        </article>
-    </main>  
 
+        <article>
+            <img src="Virtual Connection.jpg" alt="Logo Virtual Connection">
+        </article>
+    </main>
+
+    <section id="servicos">
+        <h2>Nossos Serviços</h2>
+        <div class="services-container">
+            <div class="service-item">
+                <h3>Gestão de Contatos</h3>
+                <p>Organize seus contatos em um só lugar, com acesso fácil e rápido.</p>
+            </div>
+            <div class="service-item">
+                <h3>Sincronização Global</h3>
+                <p>Acesse sua agenda de qualquer dispositivo, em qualquer lugar do mundo.</p>
+            </div>
+            <div class="service-item">
+                <h3>Segurança Garantida</h3>
+                <p>Seus dados protegidos com criptografia de ponta a ponta.</p>
+            </div>
+        </div>
+    </section>
+
+    <section id="fale-conosco">
+        <h2>Fale Conosco</h2>
+        <form id="contact-form">
+            <input type="text" name="name" placeholder="Seu Nome" required>
+            <input type="email" name="email" placeholder="Seu Email" required>
+            <textarea name="message" placeholder="Sua Mensagem" required></textarea>
+            <button type="submit" class="btn">Enviar</button>
+        </form>
+    </section>
+
+    <script src="assets/js/script.js"></script>
 </body>
 </html>
