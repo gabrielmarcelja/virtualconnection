@@ -36,7 +36,8 @@ document.addEventListener('DOMContentLoaded', () => {
                 if (xhr.status === 200) {
                     const response = JSON.parse(xhr.responseText);
                     if (response.status === 'success') {
-                        renderContacts(response.contacts);
+                        contatosOriginais = response.contacts;
+                        renderContacts(contatosOriginais);
                     } else {
                         contactsContainer.innerHTML = `<p class="error">${response.message}</p>`;
                     }
@@ -48,13 +49,19 @@ document.addEventListener('DOMContentLoaded', () => {
         xhr.send();
     }
 
+    
+    let contatosOriginais = []; 
+    let contatosFiltrados = []; 
+
     function renderContacts(contacts) {
+        contatosFiltrados = contacts; 
         contactsContainer.innerHTML = '';
+    
         if (contacts.length === 0) {
             contactsContainer.innerHTML = '<p>Nenhum contato encontrado.</p>';
             return;
         }
-
+    
         contacts.forEach(contact => {
             const contactDiv = document.createElement('div');
             contactDiv.className = 'contactContainer';
@@ -76,23 +83,29 @@ document.addEventListener('DOMContentLoaded', () => {
             `;
             contactsContainer.appendChild(contactDiv);
         });
-
-        document.querySelectorAll('.editContact').forEach(link => {
-            link.addEventListener('click', (e) => {
-                e.preventDefault();
-                const contactId = link.getAttribute('data-id');
-                editContact(contactId);
-            });
-        });
-
-        document.querySelectorAll('.deleteContact').forEach(link => {
-            link.addEventListener('click', (e) => {
-                e.preventDefault();
-                const contactId = link.getAttribute('data-id');
-                deleteContact(contactId);
-            });
-        });
+    
+        atribuirEventos();
     }
+    
+
+function atribuirEventos() {
+    document.querySelectorAll('.editContact').forEach(link => {
+        link.addEventListener('click', (e) => {
+            e.preventDefault();
+            const contactId = link.getAttribute('data-id');
+            editContact(contactId);
+        });
+    });
+
+    document.querySelectorAll('.deleteContact').forEach(link => {
+        link.addEventListener('click', (e) => {
+            e.preventDefault();
+            const contactId = link.getAttribute('data-id');
+            deleteContact(contactId);
+        });
+    });
+}
+
 
     function escapeHTML(str) {
         const div = document.createElement('div');
@@ -121,10 +134,12 @@ document.addEventListener('DOMContentLoaded', () => {
             alert('O nome deve ter pelo menos 2 caracteres.');
             return;
         }
-        const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-        if (!emailRegex.test(email)) {
-            alert('Por favor, insira um email válido.');
-            return;
+        if (email.length > 0) {
+            const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+            if (!emailRegex.test(email)) {
+                alert('Por favor, insira um email válido ou deixe em branco.');
+                return;
+            }
         }
         if (phone.length < 1) {
             alert('O telefone não pode estar vazio.');
@@ -188,10 +203,12 @@ document.addEventListener('DOMContentLoaded', () => {
             alert('O nome deve ter pelo menos 2 caracteres.');
             return;
         }
-        const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-        if (!emailRegex.test(email)) {
-            alert('Por favor, insira um email válido.');
-            return;
+        if (email.length > 0) {
+            const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+            if (!emailRegex.test(email)) {
+                alert('Por favor, insira um email válido ou deixe em branco.');
+                return;
+            }
         }
         if (phone.length < 1) {
             alert('O telefone não pode estar vazio.');
@@ -249,6 +266,20 @@ document.addEventListener('DOMContentLoaded', () => {
             xhr.send();
         }
     }
+    const searchInput = document.getElementById('searchbarInput');
 
+    searchInput.addEventListener('input', () => {
+        const termo = searchInput.value.toLowerCase();
+    
+        const filtrados = contatosOriginais.filter(c =>
+            c.Nome.toLowerCase().includes(termo) ||
+            c.Email.toLowerCase().includes(termo) ||
+            c.Telefone.toLowerCase().includes(termo)
+        );
+    
+        renderContacts(filtrados);
+    });
+    
+    
     checkSession();
 });

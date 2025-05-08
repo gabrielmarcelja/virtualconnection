@@ -151,14 +151,17 @@ app.post('/dashboard/add_contact', async (req, res) => {
     }
 
     const { name, email, phone } = req.body;
-    if (!name || !email || !phone) {
-        return res.json({ status: 'error', message: 'Todos os campos são obrigatórios.' });
+    if (!name || !phone) {
+        return res.json({ status: 'error', message: 'Nome e telefone são obrigatórios.' });
     }
+    const emailSanitized = email ? sanitize(email) : '';
 
     try {
         const connection = await mysql.createConnection(dbConfig);
-        await connection.execute('INSERT INTO contato (Id_usuario, Nome, Email, Telefone) VALUES (?, ?, ?, ?)', 
-            [req.session.user, sanitize(name), sanitize(email), sanitize(phone)]);
+        await connection.execute(
+            'INSERT INTO contato (Id_usuario, Nome, Email, Telefone) VALUES (?, ?, ?, ?)', 
+            [req.session.user, sanitize(name), emailSanitized, sanitize(phone)]
+        );
         res.json({ status: 'success', message: 'Contato adicionado com sucesso!' });
         await connection.end();
     } catch (error) {
@@ -172,14 +175,16 @@ app.post('/dashboard/edit_contact', async (req, res) => {
     }
 
     const { id, name, email, phone } = req.body;
-    if (!id || !name || !email || !phone) {
-        return res.json({ status: 'error', message: 'Todos os campos são obrigatórios.' });
+    if (!id || !name || !phone) {
+        return res.json({ status: 'error', message: 'Nome e telefone são obrigatórios.' });
     }
-
     try {
         const connection = await mysql.createConnection(dbConfig);
-        const [result] = await connection.execute('UPDATE contato SET Nome = ?, Email = ?, Telefone = ? WHERE Id_Contato = ? AND Id_usuario = ?', 
-            [sanitize(name), sanitize(email), sanitize(phone), sanitize(id), req.session.user]);
+        const [result] = await connection.execute(
+            'UPDATE contato SET Nome = ?, Email = ?, Telefone = ? WHERE Id_Contato = ? AND Id_usuario = ?', 
+            [sanitize(name), emailSanitized, sanitize(phone), sanitize(id), req.session.user]
+        );
+        
         
         if (result.affectedRows > 0) {
             res.json({ status: 'success', message: 'Contato atualizado com sucesso!' });
