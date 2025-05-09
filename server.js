@@ -178,6 +178,8 @@ app.post('/dashboard/edit_contact', async (req, res) => {
     if (!id || !name || !phone) {
         return res.json({ status: 'error', message: 'Nome e telefone são obrigatórios.' });
     }
+    const emailSanitized = email && email.trim() !== '' ? sanitize(email) : null;
+
     try {
         const connection = await mysql.createConnection(dbConfig);
         const [result] = await connection.execute(

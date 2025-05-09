@@ -42,7 +42,7 @@ document.addEventListener('DOMContentLoaded', () => {
                     showMessage(response.message, response.status);
                     if (response.status === 'success') {
                         setTimeout(() => {
-                            window.location.href = '/dashboard';
+                            window.location.href = '/';
                         }, 1000);
                     }
                 } else {
